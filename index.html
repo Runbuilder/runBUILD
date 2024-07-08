@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>런빌드</title>
+  <!-- 편집기 추가 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" type="text/javascript"  charset="utf-8"></script>
+  <link rel="icon" href="face.png">
+  <!-- 아이콘 추가 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- Showdown 라이브러리 추가 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+  <!-- SweetAlert2 라이브러리 추가 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div style="display: flex;">
+        <img src="robot.png" width="40" alt="">
+        <h1>런빌드</h1>
+      </div>
+      <!-- <button class="coloso">클래스</button> -->
+    </div>
+
+    <div class="editorContainer">
+      <!-- Ace Editor 컨테이너 -->
+      <div style="display: flex;justify-content: space-between;">
+        <!-- <button class="btnBox" id="runBuild">🚀코드실행</button> -->
+        <button class="btnSave" id="pwa">PWA</button>
+        <button class="btnSave" id="manifest">Manifest</button>
+        <button class="btnSave" id="serviceWorkers">Service</button>
+        <button class="btnSave" id="save">🗃️저장</button>
+      </div>
+      <div id="editor" class="resizable" style="height: 200px;"></div>
+      <div style="text-align:center; margin-top: 10px;">
+        <button class="btnBox" id="runBuild">🚀코드실행</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 style="margin-bottom: 10px;">😍인기 무료 자료</h2>
+      <p style="margin-top: 0;">무료로 활용하고 다운로드 받을 수 있는 자료 입니다.</p>
+      <div class="cards">
+        <div class="card" id="card1">
+          <img src="app.png" alt="app">
+          <div class="card-content">
+            <p class="card-title">AI웹앱코드 자료</p>
+            <p class="card-subtitle">AI로 만든 다양한 웹앱 코드</p>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <img src="appsctipt.png" alt="script">
+          <div class="card-content">
+            <p class="card-title">업무자동화 자료</p>
+            <p class="card-subtitle">업무자동화를 위한 구글시트 앱스크립트 자료</p>
+          </div>
+        </div>
+        <div class="card" id="card3">
+          <img src="book.png" alt="책">
+          <div class="card-content">
+            <p class="card-title">강의 자료</p>
+            <p class="card-subtitle">집필서적 및 온라인 강의 자료</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- card1-section -->
+    <div class="card1-section" style="display: none;margin-bottom: 40px;">
+      <div class="header">
+        <h2 style="margin-bottom: 10px;">😍AI웹앱 코드 자료</h2>
+        <button class="coloso backButton">Back</button>
+      </div>
+      <div id="loading-spinner-1" class="loading-spinner" style="display: none;">
+        <div class="loader"></div>
+      </div>
+      <div id="cardContainer-1" class="cards"> </div>
+    </div>
+
+    <!-- card2-section -->
+    <div class="card2-section" style="display: none;margin-bottom: 40px;">
+      <div class="header">
+        <h2 style="margin-bottom: 10px;">😍업무자동화 자료</h2>
+        <button class="coloso backButton">Back</button>
+      </div>
+      <div id="loading-spinner-2" class="loading-spinner" style="display: none;">
+        <div class="loader"></div>
+      </div>
+      <div id="cardContainer-2" class="cards"> </div>
+    </div>
+
+    <!-- card3-section -->
+    <div class="card3-section" style="display: none;margin-bottom: 40px;">
+      <div class="header">
+        <h2 style="margin-bottom: 10px;">😍강의 자료</h2>
+        <button class="coloso backButton">Back</button>
+      </div>
+      <div id="loading-spinner-3" class="loading-spinner" style="display: none;">
+        <div class="loader"></div>
+      </div>
+      <div id="cardContainer-3" class="cards"> </div>
+    </div>
+
+    <!-- 강의섹션 -->
+    <div class="section">
+      <h2 style="margin-bottom: 10px;">😎인기 무료 강의</h2>
+      <p style="margin-top: 0;">가장 인기있는 AI를 활용한 앱만들기 강의입니다.</p>
+      <div class="cards">
+        <div class="card" onclick="window.open('https://www.youtube.com/watch?v=_8S5JunQ2Vg', '_blank')">
+          <img src="youtube1.jpg" alt="youtube">
+          <div class="card-content">
+            <p class="card-title">AI코딩 마스터</p>
+            <p class="card-subtitle">업무자동화를 위한 구글시트 앱스크립트 자료</p>
+          </div>
+        </div>
+        <div class="card" onclick="window.open('https://www.youtube.com/watch?v=AjXBUKMcgfo', '_blank')">
+          <img src="youtube2.jpg" alt="youtube">
+          <div class="card-content">
+            <p class="card-title">API활용 앱만들기</p>
+            <p class="card-subtitle">업무자동화를 위한 구글시트 앱스크립트 자료</p>
+          </div>
+        </div>
+        <div class="card" onclick="window.open('https://www.youtube.com/watch?v=OWvJXW4hRNI', '_blank')">
+          <img src="youtube3.jpg" alt="youtube">
+          <div class="card-content">
+            <p class="card-title">수익화앱 전략</p>
+            <p class="card-subtitle">업무자동화를 위한 구글시트 앱스크립트 자료</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>© 런빌드 RunBuild 2024. All Rights Reserved.</p>
+    <p>문의: openaiteacher@gmail.com</p>
+    <div style="margin:10px">
+      <a href="https://www.youtube.com/@runbuild" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/runbuild/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/run_builder" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tilnote.io/@runbuild" target="_blank"><i class="fas fa-blog"></i></a>
+    </div>
+  </div>
+  <script src="script.js">
+  </script> 
+</body>
+
+</html>

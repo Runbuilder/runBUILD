@@ -1,0 +1,251 @@
+body {
+  background-color: #1c1c1e;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.btnBox {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px ;
+  /* margin: 0 0 15px 0; */
+}
+.btnSave {
+  background-color: #6f6d6d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px 0 10px 5px ;
+  width: 100%;
+  /* margin: 0 0 15px 0; */
+}
+
+.coloso {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.section {
+  margin: 40px 0;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+}
+
+.cards {
+  font-family: 'Nanum Gothic', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px !important;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: #b0b0b0;
+  margin-top: 0;
+}
+
+.card-content {
+  padding: 10px 10px 20px 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.fas,
+.fab {
+  color: white;
+  font-size: 20px;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #1c1c1e;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.swal2-title {
+  text-align: center !important;
+}
+.custom-content-class {
+  text-align: left !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+  /* 에디터 컨테이너에 대한 스크롤바 스타일 */
+  .editorContainer {
+    scrollbar-width: thin;
+    scrollbar-color: #0e7728 #f1f1f1;
+  }
+
+  /* Webkit 브라우저 (Chrome, Safari 등)를 위한 스타일 */
+  .editorContainer::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .editorContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .editorContainer::-webkit-scrollbar-thumb {
+    background-color: #0e7728;
+    border-radius: 4px;
+  }
+
+  .editorContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #C71585;
+  }
+
+  /* Edge와 IE를 위한 스타일 */
+  .editorContainer {
+    -ms-overflow-style: none;
+  }
+
+  .editorContainer::-ms-scrollbar {
+    width: 8px;
+  }
+
+  .editorContainer::-ms-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .editorContainer::-ms-scrollbar-thumb {
+    background-color: #0e7728;
+    border-radius: 4px;
+  }
+
+  .editorContainer::-ms-scrollbar-thumb:hover {
+    background-color: #C71585;
+  }
+ 
+.editorContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  min-height: 250px; /* 최소 높이 설정 */
+  text-align: center;
+}
+#editor {
+  width: 100%;
+  height: 200px;
+  resize: vertical;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.ace_editor {
+  font-size: 16px;
+}
